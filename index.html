@@ -253,6 +253,10 @@ tr.total td{border-bottom:0;font-weight:600;padding-top:20px}
 .tl-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px;margin-bottom:clamp(28px,4vw,48px)}
 .tl-legend{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-family:var(--f-mono);font-size:12px;letter-spacing:.07em;text-transform:uppercase}
 .tl-legend li{display:flex;align-items:center;gap:8px}
+.tl-legend .done{color:var(--signal)}
+.tag.done{color:var(--signal);border-style:dashed}
+.tl-card .when{margin:6px 0 0;font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;color:var(--fg-3);font-variant-numeric:tabular-nums}
+.tl-card .when+.sub{margin-top:10px}
 .tl-legend .rel{color:var(--signal)}.tl-legend .prog{color:var(--warn)}.tl-legend .plan{color:var(--fg)}.tl-legend .later{color:var(--fg-3)}
 .dm{display:inline-block;width:10px;height:10px;transform:rotate(45deg);border:1.5px solid currentColor;flex:none}
 .rel>.dm,.tl-legend .rel .dm{background:currentColor}
@@ -264,7 +268,7 @@ tr.total td{border-bottom:0;font-weight:600;padding-top:20px}
 .tl-nav button[disabled]{color:var(--fg-3);cursor:default;background:none}
 .tl-count{padding:12px 16px;border-inline:1px solid var(--line-strong);color:var(--fg-3);font-variant-numeric:tabular-nums}
 .tl-count b{font-weight:600;color:var(--fg)}
-.tl-scroll{--slot:clamp(170px,calc((min(100vw,var(--wrap)) - 2*var(--gutter))/10),250px);overflow-x:auto;scrollbar-width:none;cursor:grab;margin-inline:calc(var(--gutter)*-1);padding-inline:var(--gutter);outline:none}
+.tl-scroll{--slot:clamp(170px,calc((min(100vw,var(--wrap)) - 2*var(--gutter))/(var(--n,8) + 1)),250px);overflow-x:auto;scrollbar-width:none;cursor:grab;margin-inline:calc(var(--gutter)*-1);padding-inline:var(--gutter);outline:none}
 .tl-scroll::-webkit-scrollbar{display:none}
 .tl-scroll.drag{cursor:grabbing;user-select:none}
 .tl-scroll:focus-visible{box-shadow:inset 0 0 0 2px var(--signal)}
@@ -668,33 +672,31 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px}
       <p class="lede">Every release is delivered as a signed offline package and installed on your own hardware. Select a milestone to see what it contains.</p>
     </div>
     <div class="tl-bar rv">
-      <ul class="tl-legend" aria-label="Legend"><li class="rel"><i class="dm"></i>Released</li><li class="prog"><i class="dm"></i>In progress</li><li class="plan"><i class="dm"></i>Planned</li><li class="later"><i class="dm"></i>Later</li></ul>
-      <div class="tl-nav"><button type="button" id="tlPrev" aria-label="Previous milestone">&lt;</button><span class="tl-count" aria-live="polite"><b id="tlNow">06</b> / 09</span><button type="button" id="tlNext" aria-label="Next milestone">&gt;</button></div>
+      <ul class="tl-legend" aria-label="Legend"><li class="done"><i class="dm"></i>Completed</li><li class="rel"><i class="dm"></i>Released</li></ul>
+      <div class="tl-nav"><button type="button" id="tlPrev" aria-label="Previous milestone">&lt;</button><span class="tl-count" aria-live="polite"><b id="tlNow">08</b> / 08</span><button type="button" id="tlNext" aria-label="Next milestone">&gt;</button></div>
     </div>
     <div class="tl-scroll rv" id="tlScroll" tabindex="0" aria-label="Roadmap timeline, use the arrow keys to browse">
-     <div class="tl" style="--n:9">
-      <article class="tl-card up done" data-i="0" style="grid-column:1/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.1</span></div><h3>Week 1</h3><p class="sub">Private alpha</p><ul><li>Single-workstation install, fully offline</li><li>Spreadsheet and CSV import</li><li>First link charts</li><li>Per-project change history</li></ul></article>
-      <article class="tl-card down done" data-i="1" style="grid-column:2/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.2</span></div><h3>Week 2</h3><p class="sub">Non-destructive import</p><ul><li>Import specs you can change without starting over</li><li>Editing and undo on imported data</li><li>Directional links</li><li>One-click filters</li></ul></article>
-      <article class="tl-card up done" data-i="2" style="grid-column:3/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.3</span></div><h3>Week 3</h3><p class="sub">Sources and layers</p><ul><li>Unstructured import: notes and reports</li><li>Enable and disable sources</li><li>Data layering on charts</li></ul></article>
-      <article class="tl-card down done" data-i="3" style="grid-column:4/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.4</span></div><h3>Week 4</h3><p class="sub">Find the gaps</p><ul><li>Multi-degree visualization</li><li>Missing-link flags</li><li>Unverified connection markers</li></ul></article>
-      <article class="tl-card up done" data-i="4" style="grid-column:5/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.5</span></div><h3>Week 5</h3><p class="sub">Review and release</p><ul><li>Report and chart export</li><li>Redaction for public release</li><li>Review chain</li></ul></article>
-      <article class="tl-card down" data-i="5" style="grid-column:6/span 2"><div class="tl-top"><span class="tag prog">In progress</span><span>v0.6</span></div><h3>Week 6</h3><p class="sub">Ask the data</p><ul><li>Ask questions of the data</li><li>Suggested connections</li><li>Cross-project sharing</li></ul></article>
-      <article class="tl-card up" data-i="6" style="grid-column:7/span 2"><div class="tl-top"><span class="tag plan">Planned</span><span>v0.7</span></div><h3>Week 7</h3><p class="sub">Enclave</p><ul><li>Shared on-prem server for teams</li><li>[Placeholder text, lorem ipsum]</li></ul></article>
-      <article class="tl-card down" data-i="7" style="grid-column:8/span 2"><div class="tl-top"><span class="tag plan">Planned</span><span>v0.8</span></div><h3>Week 8</h3><p class="sub">[Placeholder milestone]</p><ul><li>[Placeholder text, lorem ipsum]</li><li>[Placeholder text, lorem ipsum]</li></ul></article>
-      <article class="tl-card up is-later" data-i="8" style="grid-column:9/span 2"><div class="tl-top"><span class="tag later">Later</span><span>v1.0</span></div><h3>Later</h3><p class="sub">Coming later</p><ul><li>[Placeholder text, lorem ipsum]</li></ul></article>
+     <div class="tl" style="--n:8">
+      <article class="tl-card up done" data-i="0" style="grid-column:1/span 2"><div class="tl-top"><span class="tag done">Completed</span><span></span></div><h3>Week 1</h3><p class="when"><time datetime="2026-08-17">08/17–08/23/2026</time></p><p class="sub">Foundations</p><ul><li>Fully offline architecture, no cloud</li><li>Built from the ground up to host a local AI model</li><li>Typed data model: people, phones, companies, addresses</li><li>First link chart from call records</li></ul></article>
+      <article class="tl-card down done" data-i="1" style="grid-column:2/span 2"><div class="tl-top"><span class="tag done">Completed</span><span></span></div><h3>Week 2</h3><p class="when"><time datetime="2026-08-24">08/24–08/30/2026</time></p><p class="sub">One case, many sources</p><ul><li>Three file types read into one case</li><li>Automatic cross-referencing between files</li><li>Nine prepared analyses, no setup required</li><li>Set aside with a reason. Sourced records are never lost</li></ul></article>
+      <article class="tl-card up done" data-i="2" style="grid-column:3/span 2"><div class="tl-top"><span class="tag done">Completed</span><span></span></div><h3>Week 3</h3><p class="when"><time datetime="2026-08-31">08/31–09/06/2026</time></p><p class="sub">Links that carry information</p><ul><li>Contact count shown on every line</li><li>Open each contact behind a line, back to its row</li><li>Pin key items so they stay put</li><li>Timeline hides what falls outside the range</li></ul></article>
+      <article class="tl-card down done" data-i="3" style="grid-column:4/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.1.0</span></div><h3>Week 4</h3><p class="when"><time datetime="2026-09-07">09/07–09/13/2026</time></p><p class="sub">First hands-on build</p><ul><li>Column-by-column import screen</li><li>Desktop app: offline installer and portable version</li><li>Classification marking applied on import</li><li>See each file exactly as the program read it</li></ul></article>
+      <article class="tl-card up done" data-i="4" style="grid-column:5/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.1.0 update</span></div><h3>Week 5</h3><p class="when"><time datetime="2026-09-14">09/14–09/20/2026</time></p><p class="sub">Change the reading, keep the chart</p><ul><li>Edit how a file was read, without reimporting</li><li>Object and attribute libraries with icons</li><li>Live chart preview inside the import screen</li><li>Save and share import schemes</li><li>Filter by attribute value</li></ul></article>
+      <article class="tl-card down done" data-i="5" style="grid-column:6/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.2.0</span></div><h3>Week 6</h3><p class="when"><time datetime="2026-09-21">09/21–09/27/2026</time></p><p class="sub">Reports in the case</p><ul><li>PDF and text reports as sources</li><li>Highlight to create items and links</li><li>Every fact traced to the sentence it came from</li><li>Near-duplicate detection and merge, with the reason stated</li></ul></article>
+      <article class="tl-card up done" data-i="6" style="grid-column:7/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.2.1</span></div><h3>Week 7</h3><p class="when"><time datetime="2026-09-28">09/28–10/04/2026</time></p><p class="sub">A chart that stays put</p><ul><li>Grid layout: static and geometric</li><li>The analyst's arrangement is always kept</li><li>Filters show a temporary view, one click back</li><li>New items highlighted where they land</li></ul></article>
+      <article class="tl-card down done" data-i="7" style="grid-column:8/span 2"><div class="tl-top"><span class="tag rel">Released</span><span>v0.3.0</span></div><h3>Week 8</h3><p class="when"><time datetime="2026-10-05">10/05–10/11/2026</time></p><p class="sub">Cases that persist</p><ul><li>Save, open and autosave cases</li><li>Password-encrypted case files</li><li>Sealed audit trail of who did what</li><li>Selection tools, item list and visual search</li><li>Custom colours, sizes, frames and pictures</li></ul></article>
       <div class="tl-axis rel" data-i="0" style="grid-column:1"><i class="dm"></i><span>Week 1</span></div>
       <div class="tl-axis rel" data-i="1" style="grid-column:2"><i class="dm"></i><span>Week 2</span></div>
       <div class="tl-axis rel" data-i="2" style="grid-column:3"><i class="dm"></i><span>Week 3</span></div>
       <div class="tl-axis rel" data-i="3" style="grid-column:4"><i class="dm"></i><span>Week 4</span></div>
       <div class="tl-axis rel" data-i="4" style="grid-column:5"><i class="dm"></i><span>Week 5</span></div>
-      <div class="tl-axis prog" data-i="5" style="grid-column:6"><i class="dm"></i><span>Week 6</span></div>
-      <div class="tl-axis plan" data-i="6" style="grid-column:7"><i class="dm"></i><span>Week 7</span></div>
-      <div class="tl-axis plan" data-i="7" style="grid-column:8"><i class="dm"></i><span>Week 8</span></div>
-      <div class="tl-axis later" data-i="8" style="grid-column:9"><i class="dm"></i><span>Later</span></div>
-      <div class="tl-end" style="grid-column:10"></div>
+      <div class="tl-axis rel" data-i="5" style="grid-column:6"><i class="dm"></i><span>Week 6</span></div>
+      <div class="tl-axis rel" data-i="6" style="grid-column:7"><i class="dm"></i><span>Week 7</span></div>
+      <div class="tl-axis rel" data-i="7" style="grid-column:8"><i class="dm"></i><span>Week 8</span></div>
+      <div class="tl-end" style="grid-column:9"></div>
      </div>
     </div>
-    <div class="tl-foot"><span>Example data · placeholder releases and weeks</span><span class="tl-hint">Drag or use ← → to browse</span></div>
+    <div class="tl-foot"><span>Weekly builds · dates in MM/DD/YYYY</span><span class="tl-hint">Drag or use ← → to browse</span></div>
   </div>
 </section>
 
@@ -811,7 +813,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px}
   (()=>{const sc=document.getElementById('tlScroll');if(!sc)return;
     const cards=[...sc.querySelectorAll('.tl-card')],axes=[...sc.querySelectorAll('.tl-axis')],now=document.getElementById('tlNow');
     const prev=document.getElementById('tlPrev'),next=document.getElementById('tlNext');
-    let cur=Math.max(0,cards.findIndex(c=>c.querySelector('.tag.prog')));
+    let cur=cards.length-1; // latest week
     const sel=(i,scroll)=>{cur=Math.max(0,Math.min(cards.length-1,i));
       cards.forEach((c,k)=>c.classList.toggle('on',k===cur));axes.forEach((a,k)=>a.classList.toggle('on',k===cur));
       now.textContent=String(cur+1).padStart(2,'0');prev.disabled=cur===0;next.disabled=cur===cards.length-1;
