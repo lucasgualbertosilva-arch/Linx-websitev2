@@ -246,7 +246,8 @@ tr.total td{border-bottom:0;font-weight:600;padding-top:20px}
 .frame.shotimg{aspect-ratio:auto;display:block;margin:0;padding:0;overflow:hidden;background:var(--graphite-2);box-shadow:0 24px 60px -24px rgba(0,0,0,.6)}
 .frame.shotimg img{display:block;width:100%;height:auto}
 .shot p{color:var(--fg-2);font-size:16px;max-width:44ch}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(40px,5vw,64px)}
+.shots-note{margin-top:clamp(36px,4vw,56px);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-3);max-width:90ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
 .chips a{text-decoration:none;display:flex;gap:10px;align-items:baseline;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;transition:background .2s}
 .chips a:hover{background:var(--graphite-2)}
 .chips a span{font-family:var(--f-mono);font-size:11px;color:var(--fg-3)}
@@ -659,6 +660,7 @@ footer{border-top:1px solid var(--line);padding-block:48px 40px}
       <div class="shot rv"><figure class="frame shotimg"><img src="assets/source-loading.webp" width="1920" height="1032" loading="lazy" decoding="async" alt="Source loading: each column of a visa applications file mapped to an object or attribute, with a live preview of the resulting network"></figure><div><span class="tag">002 / Data Processing</span><h3>No code, no data science degree.</h3><p>Map your columns, preview the network, and start analyzing.</p></div></div>
       <div class="shot rv"><figure class="frame shotimg"><img src="assets/linx-ai.webp" width="1203" height="677" loading="lazy" decoding="async" alt="Linx AI answering a question about a selected company, with every statement cited to the spreadsheet row it came from"></figure><div><span class="tag">003 / AI</span><h3>With built in AI, ask about any entity and get a clear answer in seconds.</h3><p>Linx surfaces hidden connections across your sources and cites every claim, so you never have to take its word for it.</p></div></div>
     </div>
+    <p class="shots-note rv">Example data · every name, phone number, passport, email, address and company shown in these screenshots is fictional and used for illustration only</p>
     <div class="chips">
       <a href="#features">Gap finder <span>Missing links</span></a><a href="#features">Link chart <span>Entities</span></a><a href="#features">Import <span>Any file type</span></a><a href="#features">Data layers <span>Overlay</span></a><a href="#features">Cross-project <span>Shared data</span></a>
     </div>
